@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'screens/section_00.dart';
 import 'screens/section_01.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -15,25 +13,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'DLOG | SOFTLUNCH' ,
+      title: 'DLOG | SOFTLUNCH',
       home: Scaffold(
         appBar: AppBar(
+          scrolledUnderElevation: 0,
           backgroundColor: Colors.white,
-          title: Text(
-            'DLOG 활용 가이드',
-            style: TextStyle(
-                fontFamily: 'MyFontFamily',fontWeight: FontWeight.w600, fontSize: 16),),
-          actions: [
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
-              child: IconButton(
-                  onPressed:(){}, icon: Icon(Icons.menu_rounded)
-              ),
+          title: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'DLOG 활용 가이드',
+                  style: TextStyle(
+                      fontFamily: 'MyFontFamily',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
+                ),
+                IconButton(onPressed: () {}, icon: Icon(Icons.menu_rounded)),
+              ],
+            ),
+          ),
+          shape: Border(
+            bottom: BorderSide(
+              color: Color(0xFFEEEEEE),
+              width: 1,
             )
-          ],
+          ),
         ),
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
