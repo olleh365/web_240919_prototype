@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'screens/section_00.dart';
+import 'screens/section_01.dart';
+
 
 
 void main() {
@@ -9,28 +11,18 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'DLOG | SOFTLUNCH',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: 'DLOG | SOFTLUNCH' ,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('DLOG 활용 가이드'),
+          title: Text(
+            'DLOG 활용 가이드',
+            style: TextStyle(
+                fontFamily: 'MyFontFamily',fontWeight: FontWeight.w600, fontSize: 16),),
           actions: [
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 4.0),
@@ -48,6 +40,7 @@ class MyHomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Section00(),
+                Section01(),
               ],
             ),
           ),
