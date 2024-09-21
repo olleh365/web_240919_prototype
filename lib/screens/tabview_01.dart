@@ -8,14 +8,21 @@ class Tabview01 extends StatelessWidget{
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text('일')
-        ],
-      ),
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      padding: EdgeInsets.all(16.0),
+      children: [
+        Card(
+          child: Container(
+            color: Colors.blueAccent,
+          ),
+        ),
+        Card(
+          child: Container(
+            color: Colors.blueAccent,
+          ),
+        )
+      ],
     );
   }
 }

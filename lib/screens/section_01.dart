@@ -11,6 +11,7 @@ class Section01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     const tabTextStyle = TextStyle(
       fontFamily: 'MyFontFamily',
@@ -18,13 +19,30 @@ class Section01 extends StatelessWidget {
       fontWeight: FontWeight.w600,
     );
 
+    double tabBarViewHeight;
+    if (screenWidth < 300) {
+      tabBarViewHeight = screenHeight * 0.45;
+    } else if (screenWidth < 350) {
+      tabBarViewHeight = screenHeight * 0.47;
+    } else if (screenWidth < 400) {
+      tabBarViewHeight = screenHeight * 0.56;
+    } else if (screenWidth < 450) {
+      tabBarViewHeight = screenHeight * 0.62;
+    } else if (screenWidth < 500) {
+      tabBarViewHeight = screenHeight * 0.7;
+    } else if (screenWidth < 580) {
+      tabBarViewHeight = screenHeight * 0.83;
+    } else {
+      tabBarViewHeight = screenHeight;
+    }
+
     return Container(
-        width: 1920,
+        width: screenWidth,
         color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 600,
               child: DefaultTabController(
                 length: 4,
@@ -44,8 +62,8 @@ class Section01 extends StatelessWidget {
                       dividerColor: Color(0xFFEEEEEE),
                       // splashFactory: NoSplash.splashFactory,
                     ),
-                    Container(
-                        height: 600,
+                    SizedBox(
+                      height: tabBarViewHeight,
                         child: TabBarView(
                           children:[
                             Tabview00(),
