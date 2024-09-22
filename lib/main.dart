@@ -12,9 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return GetMaterialApp(
       title: 'DLOG | SOFTLUNCH',
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           scrolledUnderElevation: 0,
           backgroundColor: Colors.white,
@@ -34,27 +37,29 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          shape: Border(
+          shape: const Border(
             bottom: BorderSide(
               color: Color(0xFFEEEEEE),
               width: 1,
             )
           ),
         ),
-        body: SingleChildScrollView(
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Section00(),
-                Section01(),
-                Section00(),
-              ],
+        body: ListView(
+          children: [
+            Center(
+              child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 360),
+                child: Section00(),
+              ),
             ),
-          ),
-        ),
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 360),
+                child: Section01(),
+              ),
+            ),
+          ],
+        )
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'tabview_00.dart';
 import 'tabview_01.dart';
 import 'tabview_02.dart';
 import 'tabview_03.dart';
+import 'package:web_240919_prototype/models/bannercard.dart';
 
 class Section01 extends StatelessWidget {
   const Section01({super.key});
@@ -16,35 +17,15 @@ class Section01 extends StatelessWidget {
     const tabTextStyle = TextStyle(
       fontFamily: 'MyFontFamily',
       fontSize: 14,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
     );
 
-    double tabBarViewHeight;
-    if (screenWidth < 300) {
-      tabBarViewHeight = screenHeight * 0.45;
-    } else if (screenWidth < 350) {
-      tabBarViewHeight = screenHeight * 0.47;
-    } else if (screenWidth < 400) {
-      tabBarViewHeight = screenHeight * 0.56;
-    } else if (screenWidth < 450) {
-      tabBarViewHeight = screenHeight * 0.62;
-    } else if (screenWidth < 500) {
-      tabBarViewHeight = screenHeight * 0.7;
-    } else if (screenWidth < 580) {
-      tabBarViewHeight = screenHeight * 0.83;
-    } else {
-      tabBarViewHeight = screenHeight;
-    }
-
     return Container(
-        width: screenWidth,
         color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 600,
-              child: DefaultTabController(
+            DefaultTabController(
                 length: 4,
                 child: Column(
                   children: [
@@ -63,21 +44,49 @@ class Section01 extends StatelessWidget {
                       // splashFactory: NoSplash.splashFactory,
                     ),
                     SizedBox(
-                      height: tabBarViewHeight,
-                        child: TabBarView(
-                          children:[
-                            Tabview00(),
-                            Tabview01(),
-                            Tabview02(),
-                            Tabview03(),
-                          ]
-                      )
-                    )
+                      height: 1000,
+                      child: TabBarView(
+                        physics: NeverScrollableScrollPhysics(),
+                        children: [
+                          Tabview00(),
+                          _buildWrapView(3),
+                          _buildWrapView(14),
+                          Tabview03(),
+                        ],
+                      ),
+                    ),
                   ],
                 )
               ),
-            )
           ],
         ));
   }
+}
+
+Widget _buildWrapView(int itemCount) {
+  List<String> bannerImages = List.generate(
+    itemCount,
+        (index) => 'assets/img/test/banner0$index.jpg',
+  );
+
+  return Padding(
+    padding: const EdgeInsets.all(16),
+    child: Wrap(
+      spacing: 16,
+      runSpacing: 16,
+      children: List.generate(itemCount, (index) {
+        return SizedBox(
+          width: 154,
+          height: 200,
+          child: BannerCard(
+            imagePath: bannerImages[index],
+            title: 'Banner $index',
+            onTap: () {
+              // Get.to(() => TargetPage());
+            },
+          ),
+        );
+      }),
+    ),
+  );
 }

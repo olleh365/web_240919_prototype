@@ -9,55 +9,57 @@ class Tabview00 extends StatelessWidget{
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
-        child: GridView(
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 8.0,
-            crossAxisSpacing: 8.0,
-            childAspectRatio: 7/9,
+    return GridView.count(
+      physics: NeverScrollableScrollPhysics(),
+      crossAxisCount: 2,
+      mainAxisSpacing: 8.0,
+      crossAxisSpacing: 8.0,
+      childAspectRatio: 7/9,
+      padding: EdgeInsets.all(16.0),
+      children: [
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
           ),
-          padding: EdgeInsets.all(16.0),
-          children: [
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Container(
-                color: Colors.blueAccent,
-              ),
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Container(
-                color: Colors.redAccent,
-              ),
-            ),
-            Card(
-              child: Container(
-                color: Colors.amber,
-              ),
-            ),
-            Card(
-              child: Container(
-                color: Colors.greenAccent,
-              ),
-            ),
-            Card(
-              child: Container(
-                color: Colors.red,
-              ),
-            ),
-            Card(
-              child: Container(
-                color: Colors.greenAccent,
-              ),
-            ),
-          ],
+          color: Colors.blueAccent,
+          child: Container(
+          ),
+        ),
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          color: Colors.redAccent,
+          child: Container(
+          ),
+        ),
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          color: Colors.amberAccent,
+          child: Container(
+          ),
+        ),Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          color: Colors.grey,
+          child: Container(
+          ),
+        ),Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          color: Colors.tealAccent,
+          child: Container(
+          ),
+        ),
+        SizedBox(
+          height: 100,
+          child: Text('df'),
         )
+      ],
     );
   }
 }
