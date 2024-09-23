@@ -8,12 +8,12 @@ class Tabview02 extends StatelessWidget{
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Wrap(
+        spacing: 16,
+        runSpacing: 16,
         children: [
-          Text('일')
         ],
       ),
     );

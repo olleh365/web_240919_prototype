@@ -49,8 +49,6 @@ class Section01 extends StatelessWidget {
                         physics: NeverScrollableScrollPhysics(),
                         children: [
                           Tabview00(),
-                          _buildWrapView(3),
-                          _buildWrapView(14),
                           Tabview03(),
                         ],
                       ),
@@ -61,32 +59,4 @@ class Section01 extends StatelessWidget {
           ],
         ));
   }
-}
-
-Widget _buildWrapView(int itemCount) {
-  List<String> bannerImages = List.generate(
-    itemCount,
-        (index) => 'assets/img/test/banner0$index.jpg',
-  );
-
-  return Padding(
-    padding: const EdgeInsets.all(16),
-    child: Wrap(
-      spacing: 16,
-      runSpacing: 16,
-      children: List.generate(itemCount, (index) {
-        return SizedBox(
-          width: 154,
-          height: 200,
-          child: BannerCard(
-            imagePath: bannerImages[index],
-            title: 'Banner $index',
-            onTap: () {
-              // Get.to(() => TargetPage());
-            },
-          ),
-        );
-      }),
-    ),
-  );
 }

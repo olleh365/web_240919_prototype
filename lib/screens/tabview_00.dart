@@ -55,10 +55,6 @@ class Tabview00 extends StatelessWidget{
           child: Container(
           ),
         ),
-        SizedBox(
-          height: 100,
-          child: Text('df'),
-        )
       ],
     );
   }
