@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'screens/section_home.dart';
+import 'screens/footer.dart';
+import 'screens/section_write_log.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'DLOG | SOFTLUNCH',
+      initialRoute: '/',
       home: HomeScreen(),
     );
   }
@@ -31,7 +34,7 @@ class HomeScreen extends StatelessWidget {
           scrolledUnderElevation: 0,
           backgroundColor: Colors.white,
           title: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -58,12 +61,12 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 SectionHome(),
-                //footer1영역,
-                //fotter2영역,
+                const SizedBox(height: 100),
+                const Footer(),
               ],
             ),
           ),
-        )
+        ),
     );
   }
 }

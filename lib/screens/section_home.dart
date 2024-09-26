@@ -10,7 +10,7 @@ class SectionHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 600,
       child: Column(
         children: [
@@ -51,8 +51,8 @@ class SectionHome extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: GridView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
@@ -73,7 +73,7 @@ class SectionHome extends StatelessWidget {
                             Image.asset(
                               cardData.image,
                               fit: BoxFit.cover,
-                              height: double.infinity,s
+                              height: double.infinity,
                             ),
                             Positioned(
                               top: 16,
