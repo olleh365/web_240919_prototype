@@ -62,26 +62,33 @@ class SectionHome extends StatelessWidget {
                     .length,
                 itemBuilder: (context, index){
                   final cardData = controller.cardContents[controller.currentIndex.value][index];
-                  return AspectRatio(
-                    aspectRatio: 7/9,
-                    child: Card(
-                      elevation: 1,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16.0),
-                        child: Stack(
-                          children: [
-                            Image.asset(
-                              cardData.image,
-                              fit: BoxFit.cover,
-                              height: double.infinity,
-                            ),
-                            Positioned(
-                              top: 16,
-                                left: 16,
-                                right: 16,
-                                child: Text(cardData.title,style: const TextStyle(color: Colors.white),)
-                            ),
-                          ],
+                  return GestureDetector(
+                    onTap: () {
+                      if (cardData.title =='Card 1'){
+                        Get.toNamed('/section_write_log');
+                      }
+                    },
+                    child: AspectRatio(
+                      aspectRatio: 7/9,
+                      child: Card(
+                        elevation: 1,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16.0),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                cardData.image,
+                                fit: BoxFit.cover,
+                                height: double.infinity,
+                              ),
+                              Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  right: 16,
+                                  child: Text(cardData.title,style: const TextStyle(color: Colors.white),)
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

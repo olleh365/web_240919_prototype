@@ -15,10 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'DLOG | SOFTLUNCH',
-      initialRoute: '/',
       home: HomeScreen(),
+      getPages: [
+        GetPage(name: '/', page: () => HomeScreen()),
+        GetPage(name: '/section_write_log', page: () => SectionWriteLog())
+      ],
     );
   }
 }
