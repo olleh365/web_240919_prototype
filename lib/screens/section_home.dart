@@ -67,6 +67,9 @@ class SectionHome extends StatelessWidget {
                       if (cardData.title =='Card 1'){
                         Get.toNamed('/section_write_log');
                       }
+                      else if (cardData.title == 'Card 2'){
+                        Get.toNamed('/section_record_photo');
+                      }
                     },
                     child: AspectRatio(
                       aspectRatio: 7/9,
@@ -147,7 +150,7 @@ const tabTextStyle = TextStyle(
 class TabBarSection extends StatelessWidget {
   final SectionHomeController controller;
 
-  TabBarSection({required this.controller});
+  const TabBarSection({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

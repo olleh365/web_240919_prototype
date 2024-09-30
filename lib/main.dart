@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:web_240919_prototype/screens/common_layout.dart';
 import 'screens/section_home.dart';
-import 'screens/footer.dart';
 import 'screens/section_write_log.dart';
+import 'screens/section_record_photo.dart';
+import 'screens/common_layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +21,10 @@ class MyApp extends StatelessWidget {
       title: 'DLOG | SOFTLUNCH',
       home: HomeScreen(),
       getPages: [
+        //section_home 에서 Get.toNamed 추가 필요
         GetPage(name: '/', page: () => HomeScreen()),
-        GetPage(name: '/section_write_log', page: () => SectionWriteLog())
+        GetPage(name: '/section_write_log', page: () => SectionWriteLog()),
+        GetPage(name: '/section_record_photo', page: () => SectionRecordPhoto())
       ],
     );
   }
@@ -31,45 +35,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.white,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'DLOG 활용 가이드',
-                  style: TextStyle(
-                      fontFamily: 'MyFontFamily',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.menu_rounded)),
-              ],
-            ),
-          ),
-          shape: const Border(
-              bottom: BorderSide(
-                color: Color(0xFFEEEEEE),
-                width: 1,
-              )
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                SectionHome(),
-                const SizedBox(height: 100),
-                const Footer(),
-              ],
-            ),
-          ),
-        ),
-    );
+    return CommonLayout(body: SectionHome());
   }
 }
