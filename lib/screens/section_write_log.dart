@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'common_layout.dart';
+import 'package:web_240919_prototype/controllers/card_controller.dart';
 
 const titleTextStyle = TextStyle(
   fontFamily: 'MyFontFamily',
@@ -15,6 +18,8 @@ const descTextStyle = TextStyle(
 
 class SectionWriteLog extends StatelessWidget{
   SectionWriteLog({super.key});
+
+  final CardController controller = Get.put(CardController());
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +92,61 @@ class SectionWriteLog extends StatelessWidget{
                       const SizedBox(height: 12),
                       const Text('설명 텍스트 예시입니다...',style: descTextStyle,),
                       const SizedBox(height: 16),
+                      SizedBox(
+                        height: 200,
+                        child: ScrollConfiguration(
+                            behavior: ScrollConfiguration.of(context).copyWith(
+                              dragDevices: {
+                                PointerDeviceKind.touch,
+                                PointerDeviceKind.mouse,
+                              }
+                            ),
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.cardContents[controller.currentIndex.value].length,
+                              itemBuilder: (BuildContext context, int index) {
+                                final cardData = controller.cardContents[controller.currentIndex.value][index];
 
+                                // 빈 위젯을 반환하여 표시하지 않음
+                                if (cardData.title == 'Card 1') {
+                                  return const SizedBox.shrink();
+                                }
+
+                                return GestureDetector(
+                                  onTap: () {
+                                    if (cardData.title == 'Card 2'){
+                                      Get.toNamed('/section_record_photo');
+                                    }
+                                  },
+                                  child: AspectRatio(
+                                    aspectRatio: 7/9,
+                                    child: Card(
+                                      elevation: 1,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(16.0),
+                                        child: Stack(
+                                          children: [
+                                            Image.asset(
+                                              cardData.image,
+                                              fit: BoxFit.cover,
+                                              height: double.infinity,
+                                            ),
+                                            Positioned(
+                                                top: 16,
+                                                left: 16,
+                                                right: 16,
+                                                child: Text(cardData.title,style: const TextStyle(color: Colors.white),)
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                        )
+                      ),
                     ],
                   ),
                 ),

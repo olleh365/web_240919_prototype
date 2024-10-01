@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
+import 'package:get/get.dart' hide Trans;
+import 'package:easy_localization/easy_localization.dart';
+import 'package:web_240919_prototype/controllers/card_controller.dart';
 
 
 class SectionHome extends StatelessWidget {
-  final SectionHomeController controller = Get.put(SectionHomeController());
+  final CardController controller = Get.put(CardController());
 
   SectionHome({super.key});
 
@@ -14,30 +15,30 @@ class SectionHome extends StatelessWidget {
       width: 600,
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
             child: SizedBox(
               width: 600,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 48,
                     width: 48,
                     child: Placeholder(),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
-                    '활용 가이드',
-                    style: TextStyle(
+                    'home_title'.tr(),
+                    style: const TextStyle(
                         fontFamily: 'MyFontFamily',
                         fontSize: 24,
                         fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
-                    'D·LOG는 매일의 작은 순간들을 모아 자신의 인생 이야기를 만들어갑니다. \n어떻게 활용할 수 있는지 알아볼까요?',
-                    style: TextStyle(
+                    'home_desc'.tr(),
+                    style: const TextStyle(
                         fontFamily: 'MyFontFamily',
                         fontWeight: FontWeight.w400,
                         fontSize: 16),
@@ -105,41 +106,6 @@ class SectionHome extends StatelessWidget {
   }
 }
 
-class CardItem {
-  final String title;
-  final String image;
-
-  CardItem({required this.title, required this.image});
-}
-
-class SectionHomeController extends GetxController {
-  var currentIndex = 0.obs;
-  List<List<CardItem>> cardContents = [
-    [
-      CardItem(title: 'Card 1', image: 'assets/img/test/banner00.jpg'),
-      CardItem(title: 'Card 2', image: 'assets/img/test/banner01.jpg'),
-      CardItem(title: 'Card 3', image: 'assets/img/test/banner02.jpg'),
-    ],
-    [
-      CardItem(title: 'Card 1', image: 'assets/img/test/banner00.jpg'),
-      CardItem(title: 'Card 2', image: 'assets/img/test/banner01.jpg'),
-      CardItem(title: 'Card 3', image: 'assets/img/test/banner02.jpg'),
-      CardItem(title: 'Card 3', image: 'assets/img/test/banner02.jpg'),
-      CardItem(title: 'Card 3', image: 'assets/img/test/banner02.jpg'),
-
-    ],
-    [
-      CardItem(title: 'Card 1', image: 'assets/img/test/banner00.jpg'),
-      CardItem(title: 'Card 2', image: 'assets/img/test/banner01.jpg'),
-    ],
-    [
-      CardItem(title: 'Card 1', image: 'assets/img/test/banner00.jpg'),
-      CardItem(title: 'Card 2', image: 'assets/img/test/banner01.jpg'),
-      CardItem(title: 'Card 3', image: 'assets/img/test/banner02.jpg'),
-    ],
-  ];
-}
-
 
 const tabTextStyle = TextStyle(
   fontFamily: 'MyFontFamily',
@@ -148,7 +114,7 @@ const tabTextStyle = TextStyle(
 );
 
 class TabBarSection extends StatelessWidget {
-  final SectionHomeController controller;
+  final CardController controller;
 
   const TabBarSection({super.key, required this.controller});
 
