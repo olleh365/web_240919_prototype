@@ -121,6 +121,7 @@ class SectionWriteLog extends StatelessWidget{
                                   child: AspectRatio(
                                     aspectRatio: 7/9,
                                     child: Card(
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                                       elevation: 1,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(16.0),

@@ -76,6 +76,7 @@ class SectionHome extends StatelessWidget {
                       aspectRatio: 7/9,
                       child: Card(
                         elevation: 1,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(16.0),
                           child: Stack(
