@@ -39,7 +39,6 @@ class Footer extends StatelessWidget {
               child: Text(
                 '© Softlunch. All rights reserved.',
                 style: TextStyle(
-                  fontFamily: 'MyFontFamily',
                   color: Colors.white,
                   fontSize: 13,
                   fontWeight: FontWeight.w500,

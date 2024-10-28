@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:web_240919_prototype/controllers/card_controller.dart';
+import 'package:web_240919_prototype/ui/card_controller.dart';
 
 
-class SectionHome extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final CardController controller = Get.put(CardController());
 
-  SectionHome({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,6 @@ class SectionHome extends StatelessWidget {
                   Text(
                     'home_title'.tr(),
                     style: const TextStyle(
-                        fontFamily: 'MyFontFamily',
                         fontSize: 24,
                         fontWeight: FontWeight.w700),
                   ),
@@ -39,7 +38,6 @@ class SectionHome extends StatelessWidget {
                   Text(
                     'home_desc'.tr(),
                     style: const TextStyle(
-                        fontFamily: 'MyFontFamily',
                         fontWeight: FontWeight.w400,
                         fontSize: 16),
                   )
@@ -109,7 +107,6 @@ class SectionHome extends StatelessWidget {
 
 
 const tabTextStyle = TextStyle(
-  fontFamily: 'MyFontFamily',
   fontSize: 14,
   fontWeight: FontWeight.w500,
 );

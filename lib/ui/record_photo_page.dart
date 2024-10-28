@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'common_layout.dart';
+import 'common/common_layout.dart';
 
-class SectionRecordPhoto extends StatelessWidget{
-  SectionRecordPhoto({super.key});
+class RecordPhotoPage extends StatelessWidget{
+  RecordPhotoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,6 @@ class SectionRecordPhoto extends StatelessWidget{
                       Text(
                         '사진으로 기록하기',
                         style: TextStyle(
-                          fontFamily: 'MyFontFamily',
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
                         ),
@@ -38,7 +37,6 @@ class SectionRecordPhoto extends StatelessWidget{
                       Text(
                         '바로 기록을 못하면 미루게 되진 않았나요? 사진으로 당시의 시간, 날씨, 위치를 자동으로 기록하고 손쉽게 로그를 작성할 수 있어요! 사진으로 기록하는 세 가지 방법을 함께 확인해보세요!',
                         style: TextStyle(
-                          fontFamily: 'MyFontFamily',
                           fontWeight: FontWeight.w400,
                           fontSize: 16,),
                       )

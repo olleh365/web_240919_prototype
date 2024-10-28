@@ -2,22 +2,20 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'common_layout.dart';
-import 'package:web_240919_prototype/controllers/card_controller.dart';
+import 'common/common_layout.dart';
+import 'package:web_240919_prototype/ui/card_controller.dart';
 
 const titleTextStyle = TextStyle(
-  fontFamily: 'MyFontFamily',
   fontSize: 20,
   fontWeight: FontWeight.w600,
 );
 const descTextStyle = TextStyle(
-  fontFamily: 'MyFontFamily',
   fontSize: 15,
   fontWeight: FontWeight.w400,
 );
 
-class SectionWriteLog extends StatelessWidget{
-  SectionWriteLog({super.key});
+class WriteLogPage extends StatelessWidget{
+  WriteLogPage({super.key});
 
   final CardController controller = Get.put(CardController());
 
@@ -45,7 +43,6 @@ class SectionWriteLog extends StatelessWidget{
                       const Text(
                         '오늘 로그 작성하기',
                         style: TextStyle(
-                          fontFamily: 'MyFontFamily',
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
                         ),
@@ -54,7 +51,6 @@ class SectionWriteLog extends StatelessWidget{
                       const Text(
                         'D·LOG는 매일의 순간들을 손쉽게 남길 수 있도록 도와줍니다. \n오늘의 로그를 작성해 볼까요?',
                         style: TextStyle(
-                          fontFamily: 'MyFontFamily',
                           fontWeight: FontWeight.w400,
                           fontSize: 16,),
                       ),
